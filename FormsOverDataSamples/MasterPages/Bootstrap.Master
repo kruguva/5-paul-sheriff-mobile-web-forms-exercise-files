@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#"
+  EnableViewState="false" 
+  AutoEventWireup="true"
+  CodeBehind="Bootstrap.master.cs"
+  Inherits="FormsOverDataSamples.Bootstrap" %>
+
+<!-- Be sure to use HTML 5 document type -->
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+  <title>Forms over Data Samples</title>
+
+  <!-- Use Unicode character encoding -->
+  <meta charset="utf-8">
+  <!-- Tell IE to display content in highest HTML 5 mode available -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Tell mobile browsers to use the device width when rendering -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="../css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
+  <!-- Your Custom Styles -->
+  <link href="../css/Styles.css" media="all" rel="stylesheet" type="text/css">
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="../js/jquery-1.11.0.min.js"></script>
+  <!-- Normal Bootstrap plugins -->
+  <script src="../js/bootstrap.min.js"></script>
+  <!-- jQuery UI -->
+  <script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+  <!-- jQuery UI Theme -->
+  <link href="../css/smoothness/jquery-ui-1.10.4.custom.min.css" media="all" rel="stylesheet"
+    type="text/css">
+
+  <!-- ******************************************************* -->
+  <!-- **** Tools for older browsers **** -->
+  <!-- ******************************************************* -->
+  <!-- Modernizr -->
+  <script src="../js/modernizr-latest.js"></script>
+
+  <!-- jQuery Validation -->
+  <script src="../js/jquery.validate.min.js"></script>
+
+  <!-- Support for Placeholders on IE -->
+  <script src="../js/jquery.placeholder.js"></script>
+  <!-- ******************************************************* -->
+
+  <!-- Check if the 'date' input type is not supported, 
+       if not, then add a datepicker shim from jQuery UI
+     -->
+  <script type="text/javascript">
+    $(function () {
+      $('input, textarea').placeholder();
+    });
+    
+    if (!Modernizr.inputtypes.date) {
+      $(function () {
+        var dp = $("input[type='date']");
+        if (dp) {
+          if (dp.datepicker().get(0)) {
+            dp.datepicker().get(0).setAttribute("type", "text");
+          }
+        }
+      });
+    }
+  </script>
+  <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+  </asp:ContentPlaceHolder>
+</head>
+<body>
+  <nav class="nav navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="../Default.aspx" class="navbar-brand"><span class="glyphicon glyphicon-circle-arrow-left">
+        </span>&nbsp;Home</a>
+      </div>
+    </div>
+  </nav>
+  <div id="main" role="main" class="mainArea">
+    <div class="container">
+      <asp:ContentPlaceHolder ID="MainContent" runat="server">
+      </asp:ContentPlaceHolder>
+    </div>
+  </div>
+  <asp:ContentPlaceHolder ID="EndOfPageContent" runat="server">
+  </asp:ContentPlaceHolder>
+</body>
+</html>

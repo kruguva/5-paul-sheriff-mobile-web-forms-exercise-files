@@ -1,0 +1,15 @@
+﻿.container
+{
+  width: 95%;
+  margin-top: .5em;
+}
+
+.productBlock {
+  border: 0.08em solid gray;
+  margin: 0.5em 0.5em 0.5em 0.5em;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.productNameTitle {
+  font-size: x-large;
+}
